@@ -6,11 +6,20 @@
 - **mercury** - The [mercury](https://github.com/Rhizomatica/mercury) HF modem
 
 ## Usage
+You can use the provided packages via a nixpkgs overlay in your configuration.nix:
 
-You can use this flake on any NixOS machine with one of the following methods:
-
-- Use it directly with: `nix run github:username/nix-homelab#packagename`. This is useful for testing or using a specific package
-- Add it as an overlay to your system flake. Now you can use any of my package definitions as `pkgs.package_name`, etc.
+```nix
+nixpkgs.overlays = [
+  (final: prev: {
+    multimon-ng = prev.callPackage ./nix-homelab/packages/multimon-ng.nix {};
+    mercury = prev.callPackage ./nix-homelab/packages/mercury.nix {};
+    squelch-collector = prev.callPackage ./nix-homelab/packages/squelch-collector.nix {};
+  })
+];
+```
+Then you are free to add these packages to your system or user packages as you would normally, i.e. with something like `pkgs.squelch-collector`.
+Keep in mind that the paths included in the example are pointing to the corresponding nix files. **Your configuration needs to, too.**
+In my case, I just clone this repo into `/etc/nixos` and this works perfectly.
 
 ## Notes
 I am using oxalica's rust-overlay to create a new rustPlatform for building squelch-collector (and probably future rust projects) for the reasons outlined in [this issue](https://github.com/rust-lang/rust/issues/159669)

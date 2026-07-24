@@ -1,6 +1,17 @@
 { lib, rustPlatform, fetchFromGitHub }:
-
-rustPlatform.buildRustPackage rec {
+# NOTE: We have to use rust-overlay (i.e. a newer rustc version) to fix the error outlined in https://github.com/rust-lang/rust/issues/159669
+with import <nixpkgs> {
+  overlays = [
+    (import (fetchTarball "https://github.com/oxalica/rust-overlay/archive/master.tar.gz"))
+  ];
+};
+let
+  rustPlatform = makeRustPlatform {
+    cargo = rust-bin.stable.latest.minimal;
+    rustc = rust-bin.stable.latest.minimal;
+  };
+in
+rustPlatform.buildRustPackage (finalAttrs: {
   pname = "squelch-collector";
   version = "0.1.0";
 
@@ -18,4 +29,4 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/porkiedev/squelch-collector";
     mainProgram = "squelch-collector";
   };
-}
+})
