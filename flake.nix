@@ -35,7 +35,15 @@
         };
       }
     ) // {
-      overlays.default = final: prev: {
+      overlays.default = final: prev:
+      let
+        rustToolchain = final.rust-bin.stable.latest.default;
+        rustPlatform = final.makeRustPlatform {
+          cargo = rustToolchain;
+          rustc = rustToolchain;
+        };
+      in
+      {
         multimon-ng = final.callPackage ./packages/multimon-ng.nix { };
         squelch-collector = final.callPackage ./packages/squelch-collector.nix {
           inherit rustPlatform;
