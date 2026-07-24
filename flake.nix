@@ -37,12 +37,7 @@
     ) // {
       overlays.default = final: prev:
       let
-        pkgs = import nixpkgs {
-          overlays = [
-            (import rust-overlay)
-          ];
-        };
-        rustToolchain = final.rust-bin.stable.latest.default;
+        rustToolchain = prev.rust-bin.stable.latest.default;
         rustPlatform = final.makeRustPlatform {
           cargo = rustToolchain;
           rustc = rustToolchain;
