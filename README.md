@@ -11,3 +11,6 @@ You can use this flake on any NixOS machine with one of the following methods:
 
 - Use it directly with: `nix run github:username/nix-homelab#packagename`. This is useful for testing or using a specific package
 - Add it as an overlay to your system flake. Now you can use any of my package definitions as `pkgs.package_name`, etc.
+
+## Notes
+I am using oxalica's rust-overlay to create a new rustPlatform for building squelch-collector (and probably future rust projects) for the reasons outlined in [this issue](https://github.com/rust-lang/rust/issues/159669)

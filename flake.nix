@@ -36,15 +36,6 @@
         };
       }
     ) // {
-      # Overlay that can be used by other flakes
-      # overlays.default = final: prev: {
-      #   multimon-ng = final.callPackage ./packages/multimon-ng.nix { };
-      #   squelch-collector = final.callPackage ./packages/squelch-collector.nix {
-      #     inherit rustPlatform;
-      #   };
-      #   mercury = final.callPackage ./packages/mercury.nix { };
-      # };
-
       overlays.default = final: prev:
       let
         rustToolchain = final.rust-bin.stable.latest.default;
