@@ -11,7 +11,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-pe500uLayaIjJg0+9RpxjFXyPJcKPG7Oo6+Fwp1mT5w=";
   };
 
-  cargoHash = lib.fakeHash;
+  cargoHash = "sha256-brir+XbwC9HZhjLIWeSrKHwhtoQwmu7RgP/sBx6+KnE=";
 
   meta = with lib; {
     description = "A tool for parsing, aggregating, and forwarding the output of various RF tools to a SurrealDB instance for fun and monitoring purposes";
