@@ -38,7 +38,7 @@
     ) // {
       overlays.default = final: prev:
       let
-        rustToolchain = final.rust-bin.stable.latest.default;
+        rustToolchain = rust-bin.stable.latest.default;
         rustPlatform = final.makeRustPlatform {
           cargo = rustToolchain;
           rustc = rustToolchain;
