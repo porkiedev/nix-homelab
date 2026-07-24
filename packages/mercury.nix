@@ -25,7 +25,7 @@ stdenv.mkDerivation (finalAttrs: {
   
   installFlags = [ "prefix=${placeholder "out"}" ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "HERMES OFDM HF modem with ARQ data link and VARA-style TCP TNC interface";
     homepage = "https://github.com/Rhizomatica/mercury";
     license = with licenses; [ gpl3Only lgpl21Only ];
