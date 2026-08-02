@@ -24,11 +24,11 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "dlasher";
     repo = "rtltcp2026";
-    rev = "v${version}";
-    hash = lib.fakeHash;
+    rev = "v0.10.1";
+    hash = "sha256-/VvbvJQS0m/l9kNiCq0TzT+ZUjBXQQmyijU3wgljJ2M=";
   };
 
-  cargoHash = lib.fakeHash;
+  cargoHash = "sha256-JiebBGQ8/GaU7kSEf3JSDegMpiHtOF9kNlctfR/M/Lc=";
 
   nativeBuildInputs = [
     pkg-config
