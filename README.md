@@ -4,6 +4,7 @@
 - **multimon-ng** - The [multimon-ng](https://github.com/EliasOenal/multimon-ng) package. Based on the master branch at the time of writing, since the standard nixpkgs version is too outdated for my use case
 - **squelch-collector** - [squelch-collector](https://github.com/porkiedev/squelch-collector/)
 - **mercury** - The [mercury](https://github.com/Rhizomatica/mercury) HF modem
+- **rtltcp2026** - The [rtltcp2026](https://github.com/dlasher/rtltcp2026) package. This is a rust rewrite of rtl_tcp with many improvements
 
 ## Usage
 You can use the provided packages via a nixpkgs overlay in your configuration.nix:
@@ -14,6 +15,7 @@ nixpkgs.overlays = [
     multimon-ng = prev.callPackage ./nix-homelab/packages/multimon-ng.nix {};
     mercury = prev.callPackage ./nix-homelab/packages/mercury.nix {};
     squelch-collector = prev.callPackage ./nix-homelab/packages/squelch-collector.nix {};
+    rtltcp2026 = prev.callPackage ./nix-homelab/packages/rtltcp2026.nix {};
   })
 ];
 ```
