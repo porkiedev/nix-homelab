@@ -18,8 +18,8 @@ rustPlatform.buildRustPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "porkiedev";
     repo = "squelch-collector";
-    rev = "ba95bc7989770842e4d0f4c36e4c36f9edc830da";
-    hash = "sha256-pe500uLayaIjJg0+9RpxjFXyPJcKPG7Oo6+Fwp1mT5w=";
+    rev = "079c4f31a03be84b26cda2c47ad4fea36d93cb17";
+    hash = "sha256-Ey1nt1Yx9SB6bY8RW5ICxXZ7FyDIPwBmvxO0fHkbHPI=";
   };
 
   cargoHash = "sha256-brir+XbwC9HZhjLIWeSrKHwhtoQwmu7RgP/sBx6+KnE=";
